@@ -1,0 +1,45 @@
+classDiagram
+    class Relatorio {
+        <<interface>>
+        +gerar()
+    }
+
+    class RelatorioPDF {
+        +gerar()
+    }
+
+    class RelatorioHTML {
+        +gerar()
+    }
+
+    class RelatorioJSON {
+        +gerar()
+    }
+
+    class RelatorioFactory {
+        <<abstract>>
+        +criarRelatorio()
+        +gerarRelatorio()
+    }
+
+    class PDFFactory {
+        +criarRelatorio()
+    }
+
+    class HTMLFactory {
+        +criarRelatorio()
+    }
+
+    class JSONFactory {
+        +criarRelatorio()
+    }
+
+    RelatorioPDF ..|> Relatorio
+    RelatorioHTML ..|> Relatorio
+    RelatorioJSON ..|> Relatorio
+
+    PDFFactory --|> RelatorioFactory
+    HTMLFactory --|> RelatorioFactory
+    JSONFactory --|> RelatorioFactory
+
+    RelatorioFactory --> Relatorio : cria >

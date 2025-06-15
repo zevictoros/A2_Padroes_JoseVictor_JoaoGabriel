@@ -1,0 +1,7 @@
+flowchart TD
+    A["O objeto tem múltiplas configurações opcionais?"] -->|Sim| B["Precisa construir o objeto passo a passo?"]
+    A -->|Não| C["Precisa criar famílias relacionadas de objetos?"]
+    B -->|Sim| D["Use Builder"]
+    B -->|Não| E["Use Factory Method"]
+    C -->|Sim| F["Use Abstract Factory"]
+    C -->|Não| G["Use Prototype ou Singleton"]

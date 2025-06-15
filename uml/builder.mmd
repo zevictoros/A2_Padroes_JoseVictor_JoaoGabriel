@@ -1,0 +1,28 @@
+classDiagram
+    class HttpRequest {
+        -url : String
+        -method : String
+        -headers : Map<String, String>
+        -timeout : int
+        -authToken : String
+        +getUrl() : String
+        +getMethod() : String
+        +getHeaders() : Map<String,String>
+        +getTimeout() : int
+        +getAuthToken() : String
+        +toString() : String
+    }
+
+    class Builder {
+        -request : HttpRequest
+        +Builder()
+        +url(String) : Builder
+        +method(String) : Builder
+        +addHeader(String, String) : Builder
+        +timeout(int) : Builder
+        +authToken(String) : Builder
+        +build() : HttpRequest
+    }
+
+    HttpRequest ..> Builder : contains
+    Builder --> HttpRequest : builds >
